@@ -2,6 +2,14 @@
 name = "seed-bootstrap"
 version = "0.1.0"
 edition = "2018"
+repository = "https://github.com/panoptix-za/web-bundler"
+license = "MIT/Apache-2.0"
+keywords = ["seed"]
+categories = ["web-programming"]
+authors = [
+  "Martin Kavík <martin@kavik.cz>",
+  "Panoptix OSS maintainers <oss@panoptix.io>",
+]
 
 [dependencies]
 seed = "0.8"
