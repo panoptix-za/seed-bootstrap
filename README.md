@@ -6,7 +6,6 @@ Seed Bootstrap
 
 #### License
 
-<sup>
 Licensed under either of
 
  * Apache License, Version 2.0
@@ -15,4 +14,3 @@ Licensed under either of
    ([LICENSE-MIT](LICENSE-MIT) or http://opensource.org/licenses/MIT)
 
 at your option.
-</sup>
