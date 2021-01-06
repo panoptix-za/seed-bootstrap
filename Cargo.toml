@@ -1,0 +1,16 @@
+[package]
+name = "seed-bootstrap"
+version = "0.1.0"
+edition = "2018"
+
+[dependencies]
+seed = "0.8"
+wasm-bindgen = "0.2"
+
+[dependencies.uuid]
+version = "0.8"
+features = ["wasm-bindgen", "v4"]
+
+[dependencies.web-sys]
+version = "0.3"
+features = ["HtmlElement"]
