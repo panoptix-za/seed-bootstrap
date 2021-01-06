@@ -18,4 +18,5 @@ blocks:
             - cache restore lib
             - cargo build --verbose
             - cargo test --verbose
+            - cache store cargo $CARGO_HOME
             - cache store lib target
