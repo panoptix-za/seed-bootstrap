@@ -1,0 +1,32 @@
+[package]
+name = "frontend"
+version = "0.1.0"
+authors = ["Martin Kavík <martin@kavik.cz>"]
+edition = "2018"
+
+[lib]
+crate-type = ["cdylib"]
+
+[build-dependencies]
+sass-rs = "0.2"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3.8"
+
+[dependencies]
+wasm-bindgen = { version = "0.2.59" }
+seed = "0.8.0"
+seed-bootstrap = { path = "../.." }
+chrono = { version = "0.4.10", features = [ "wasmbind" ]}
+strum = "0.17.1"
+strum_macros = "0.17.1"
+
+[dependencies.web-sys]
+version = "0.3.35"
+features = [
+    "HtmlCanvasElement",
+    "HtmlElement",
+]
+
+[package.metadata.wasm-pack.profile.release]
+wasm-opt = ['-Os']

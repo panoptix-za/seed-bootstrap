@@ -1,0 +1,311 @@
+@import "./bootstrap/bootstrap";
+@import url('https://fonts.googleapis.com/css?family=Muli:400,600,700&display=swap');
+
+/* Custom */
+
+/* ------ hotrod admin ------ */
+
+/* --- table panel --- */
+
+.table-panel {
+  .table-panel-row-expanded, .table-panel-row-expanded-content, .table-panel-row:hover {
+    background: #F5FAFE;
+  }
+  .table-panel-row-expanded-content {
+    td {
+      border-top: none;
+    }
+  }
+}
+
+/* --- --- */
+
+$sidebar-width: 255px;
+
+.outline-none {
+  outline: 0;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.cursor-default {
+  cursor: default;
+}
+
+#admin-page {
+  background: #f7f8fc;
+  font-family: Muli, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 65px 1fr;
+  grid-template-areas:
+    "header"
+    "main";
+
+  #overlay {
+    top: 0;
+    background: #DDE2FF;
+    opacity: 0.5;
+  }
+
+  #header {
+    #page-title {
+      font-size: 24px;
+      letter-spacing: 0.3px;
+      color: #252733;
+    }
+
+    .header-btn {
+      color: #C5C7CD;
+
+      #unread-notification-symbol {
+        top: 2px;
+        right: 0;
+        height: 10px;
+        width: 10px;
+        background: #3751FF;
+        border: 2px solid #F7F8FC;
+      }
+    }
+
+    .header-divider {
+      width: 1px;
+      height: 32px;
+      background: #DFE0EB;
+    }
+
+    .avatar {
+      & > span {
+        font-size: 14px;
+        letter-spacing: 0.2px;
+        color: #252733;
+        font-weight: 600;
+      }
+
+      & > img {
+        border: 2px solid transparent; 
+        box-shadow: 0 0 0 1.5px #DFE0EB;
+      }
+    }
+  }
+
+  #sidebar {
+    background: #363740;
+    width: $sidebar-width;
+
+    &.expanded {
+      display: block !important;
+    }
+
+    #logo {
+      margin-top: 35px;
+
+      #logo-text {
+        font-size: 19px;
+        letter-spacing: 0.4px;
+        color: #838590;
+      }
+    }
+
+    .sidebar-item > .nav-link {
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      color: #A4A6B3;
+      border-left: 3px solid transparent;
+  
+      &.active, &:hover {
+        color: #DDE2FF;
+        border-left-color: #DDE2FF;
+        background: #3f4049;
+      }
+    }
+  
+    .sidebar-divider {
+      background: #40414a;
+      height: 2px;
+    }
+  }
+
+  // @TODO variable - once the SASS compiler supports functions
+  @media (min-width: 768px) {
+    grid-template-columns: $sidebar-width 1fr;
+    grid-template-rows: 100px 1fr;
+    grid-template-areas:
+      "sidebar header"
+      "sidebar main";
+  }
+}
+
+/* ====== ====== ANIMATIONS ====== ====== */
+
+.fade-in {
+	animation: fade-in 500ms linear 200ms both;
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* ------ example-login ------ */
+
+.example-login-page {
+  height: 100vh;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #f5f5f5;
+
+  .form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+
+    .checkbox {
+      font-weight: 400;
+    }
+
+    .form-control {
+      position: relative;
+      box-sizing: border-box;
+      height: auto;
+      padding: 10px;
+      font-size: 16px;
+
+      &:focus {
+        z-index: 2;
+      }
+    }
+
+    input[type="email"] {
+      margin-bottom: -1px;
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+
+    input[type="password"] {
+      margin-bottom: 10px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+    }
+  }
+}
+
+/* ------ example-dashboard ------ */
+
+.example-dashboard-page {
+  font-size: .875rem;
+
+  .feather {
+    width: 16px;
+    height: 16px;
+    vertical-align: text-bottom;
+  }
+
+  /*
+  * Sidebar
+  */
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100; /* Behind the navbar */
+    padding: 48px 0 0; /* Height of navbar */
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+
+    .nav-link {
+      font-weight: 500;
+      color: #333;
+
+      &.active {
+        color: #007bff;
+      }
+
+      .feather {
+        margin-right: 4px;
+        color: #999;
+      }
+
+      &:hover, &.active {
+        .feather {
+          color: inherit;
+        }
+      }
+    }
+  }
+
+  .sidebar-sticky {
+    position: relative;
+    top: 0;
+    height: calc(100vh - 48px);
+    padding-top: .5rem;
+    overflow-x: hidden;
+    overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+
+    @supports ((position: -webkit-sticky) or (position: sticky)) {
+      position: -webkit-sticky;
+      position: sticky;
+    }
+  }
+
+  .sidebar-heading {
+    font-size: .75rem;
+    text-transform: uppercase;
+  }
+
+  /*
+  * Content
+  */
+
+  [role="main"] {
+    padding-top: 133px; /* Space for fixed navbar */
+  }
+
+  @media (min-width: 768px) {
+    [role="main"] {
+      padding-top: 48px; /* Space for fixed navbar */
+    }
+  }
+
+  /*
+  * Navbar
+  */
+
+  .navbar-brand {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+    font-size: 1rem;
+    background-color: rgba(0, 0, 0, .25);
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .25);
+  }
+
+  .navbar .form-control {
+    padding: .75rem 1rem;
+    border-width: 0;
+    border-radius: 0;
+  }
+
+  .form-control-dark {
+    color: #fff;
+    background-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, .1);
+  }
+
+  .form-control-dark:focus {
+    border-color: transparent;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, .25);
+  }
+}
+

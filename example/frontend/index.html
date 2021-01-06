@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <base href="{{ base_url }}">
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {{ stylesheet | safe }}
+
+        <script src="https://unpkg.com/feather-icons"></script>
+        <script type="module" async src="/static/js/feather-icon.js"></script>
+
+        <link rel="stylesheet" href="/static/js/highlight/github.css">
+        <script type="text/javascript" src="/static/js/highlight/highlight.pack.js"></script>
+        <script type="module" async src="/static/js/code-block.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+        <script src="/static/js/example-dashboard-chart.js"></script>
+
+        <script src="https://unpkg.com/@popperjs/core@2"></script>
+
+        <title>Seed Quickstart</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        {{ javascript | safe }}
+    </body>
+</html>
