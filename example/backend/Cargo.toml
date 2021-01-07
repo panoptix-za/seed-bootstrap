@@ -16,7 +16,7 @@ version="5"
 features= ["compression", "interpolate-folder-path"]
 
 [build-dependencies]
-web-bundler = "0.1.2"
+web-bundler = "0.1"
 
 # depend on the frontend project here not because we actually use it,
 # but because we want to trigger a rerun of the build.rs script if
