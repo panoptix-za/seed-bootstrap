@@ -20,3 +20,19 @@ blocks:
             - cargo test --verbose
             - cache store cargo $CARGO_HOME
             - cache store lib target
+  - name: Test Example
+    task:
+      jobs:
+        - name: cargo test example
+          commands:
+            - checkout
+            - cache restore rustup
+            - cache restore cargo
+            - cache restore lib
+            - rustup target add wasm32-unknown-unknown
+            - cargo install wasm-pack
+            - cd example
+            - cargo build --verbose
+            - cargo test --verbose
+            - cache store rustup $RUSTUP_HOME
+            - cache store cargo $CARGO_HOME
