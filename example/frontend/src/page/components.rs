@@ -5,9 +5,9 @@ use seed_bootstrap::components::button;
 use seed_bootstrap::components::button_group;
 use seed_bootstrap::components::dropdown;
 use seed_bootstrap::components::navbar;
-use std::{collections::HashMap, fmt, iter::FromIterator};
+use std::{collections::HashMap, iter::FromIterator};
 use strum::IntoEnumIterator;
-use strum_macros::{AsRefStr, EnumIter};
+use strum_macros::EnumIter;
 
 mod button_groups;
 mod buttons;

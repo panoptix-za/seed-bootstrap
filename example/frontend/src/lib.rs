@@ -1,9 +1,7 @@
 mod page;
 
-use seed::{prelude::*, *};
-use seed_bootstrap::components::dropdown;
+use seed::prelude::*;
 use std::borrow::Cow;
-use web_sys::{EventTarget, HtmlCanvasElement, HtmlElement};
 
 // ------ ------
 //     Init
@@ -110,7 +108,7 @@ fn update(msg: Msg, model: &mut Model, orders: &mut impl Orders<Msg>) {
 //     View
 // ------ ------
 
-fn view(model: &Model) -> impl View<Msg> {
+fn view(model: &Model) -> impl IntoNodes<Msg> {
     match &model.page {
         Page::Components(model) => page::components::view(model)
             .into_nodes()

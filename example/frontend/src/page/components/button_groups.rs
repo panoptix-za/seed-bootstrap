@@ -1,7 +1,7 @@
 use super::{DropdownID, ExampleBox, Model, Msg};
 use seed::{prelude::*, *};
 use seed_bootstrap::components::button::Button;
-use seed_bootstrap::components::button_group::{ButtonGroup, Label, Role};
+use seed_bootstrap::components::button_group::ButtonGroup;
 use seed_bootstrap::components::dropdown::{Dropdown, Item};
 
 pub fn view(model: &Model) -> Node<Msg> {
