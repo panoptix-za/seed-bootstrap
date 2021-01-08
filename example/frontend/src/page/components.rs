@@ -1,10 +1,10 @@
 use crate::Route;
 use seed::virtual_dom::IntoNodes;
 use seed::{prelude::*, *};
-use seed_bootstrap::components::button;
-use seed_bootstrap::components::button_group;
-use seed_bootstrap::components::dropdown;
-use seed_bootstrap::components::navbar;
+use seed_bootstrap::button;
+use seed_bootstrap::button_group;
+use seed_bootstrap::dropdown;
+use seed_bootstrap::navbar;
 use std::{collections::HashMap, iter::FromIterator};
 use strum::IntoEnumIterator;
 use strum_macros::EnumIter;

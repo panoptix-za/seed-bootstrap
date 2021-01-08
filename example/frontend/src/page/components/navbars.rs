@@ -1,8 +1,8 @@
 use super::{DropdownID, ExampleBox, Model, Msg};
 use seed::{prelude::*, *};
-use seed_bootstrap::components::button::{self, Button};
-use seed_bootstrap::components::dropdown::{self, Dropdown};
-use seed_bootstrap::components::navbar::{Nav, NavBar, NavLink};
+use seed_bootstrap::button::{self, Button};
+use seed_bootstrap::dropdown::{self, Dropdown};
+use seed_bootstrap::navbar::{Nav, NavBar, NavLink};
 
 pub fn view(model: &Model) -> Node<Msg> {
     div![

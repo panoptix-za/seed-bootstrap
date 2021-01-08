@@ -1,6 +1,6 @@
 use super::{ExampleBox, Model, Msg};
 use seed::{prelude::*, *};
-use seed_bootstrap::components::button::{Button, Role, Type};
+use seed_bootstrap::button::{Button, Role, Type};
 
 pub fn view(model: &Model) -> Node<Msg> {
     div![
