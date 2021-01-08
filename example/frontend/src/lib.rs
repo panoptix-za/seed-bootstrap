@@ -26,14 +26,14 @@ struct Model {
 // ------ Page ------
 
 enum Page {
-    Components(page::components::Model),
+    Components(page::Model),
     NotFound,
 }
 
 // ------ Route ------
 
 pub enum Route {
-    Components(page::components::Page),
+    Components(page::Page),
     Unknown(Url),
 }
 
@@ -44,10 +44,10 @@ impl Route {
             Self::Components(component_page) => {
                 url = url.add_path_part("components");
                 let slug = match component_page {
-                    page::components::Page::Buttons => "buttons",
-                    page::components::Page::ButtonGroups => "button-groups",
-                    page::components::Page::Dropdowns => "dropdowns",
-                    page::components::Page::Navbars => "navbars",
+                    page::Page::Buttons => "buttons",
+                    page::Page::ButtonGroups => "button-groups",
+                    page::Page::Dropdowns => "dropdowns",
+                    page::Page::Navbars => "navbars",
                 };
                 url = url.add_path_part(slug);
             }
@@ -58,23 +58,22 @@ impl Route {
 
     fn to_page(&self, orders: &mut impl Orders<Msg>) -> Page {
         match self {
-            Self::Components(page) => Page::Components(page::components::init(
-                *page,
-                &mut orders.proxy(Msg::Components),
-            )),
+            Self::Components(page) => {
+                Page::Components(page::init(*page, &mut orders.proxy(Msg::Components)))
+            }
             Self::Unknown(_) => Page::NotFound,
         }
     }
 
     fn from_url(mut url: Url) -> Route {
         match url.next_path_part() {
-            None => Self::Components(page::components::Page::default()),
+            None => Self::Components(page::Page::default()),
             Some("components") => match url.next_path_part() {
-                Some("buttons") => Self::Components(page::components::Page::Buttons),
-                Some("button-groups") => Self::Components(page::components::Page::ButtonGroups),
-                Some("dropdowns") => Self::Components(page::components::Page::Dropdowns),
-                Some("navbars") => Self::Components(page::components::Page::Navbars),
-                _ => Self::Components(page::components::Page::default()),
+                Some("buttons") => Self::Components(page::Page::Buttons),
+                Some("button-groups") => Self::Components(page::Page::ButtonGroups),
+                Some("dropdowns") => Self::Components(page::Page::Dropdowns),
+                Some("navbars") => Self::Components(page::Page::Navbars),
+                _ => Self::Components(page::Page::default()),
             },
             _ => Self::Unknown(url),
         }
@@ -87,7 +86,7 @@ impl Route {
 
 pub enum Msg {
     UrlChanged(subs::UrlChanged),
-    Components(page::components::Msg),
+    Components(page::Msg),
 }
 
 fn update(msg: Msg, model: &mut Model, orders: &mut impl Orders<Msg>) {
@@ -98,7 +97,7 @@ fn update(msg: Msg, model: &mut Model, orders: &mut impl Orders<Msg>) {
         }
         Msg::Components(msg) => {
             if let Page::Components(model) = &mut model.page {
-                page::components::update(msg, model, &mut orders.proxy(Msg::Components));
+                page::update(msg, model, &mut orders.proxy(Msg::Components));
             }
         }
     }
@@ -110,9 +109,7 @@ fn update(msg: Msg, model: &mut Model, orders: &mut impl Orders<Msg>) {
 
 fn view(model: &Model) -> impl IntoNodes<Msg> {
     match &model.page {
-        Page::Components(model) => page::components::view(model)
-            .into_nodes()
-            .map_msg(Msg::Components),
+        Page::Components(model) => page::view(model).into_nodes().map_msg(Msg::Components),
         Page::NotFound => page::not_found::view().into_nodes(),
     }
 }

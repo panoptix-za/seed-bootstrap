@@ -14,6 +14,8 @@ mod buttons;
 mod dropdowns;
 mod navbars;
 
+pub mod not_found;
+
 // ------ ------
 //     Init
 // ------ ------
