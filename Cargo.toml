@@ -1,7 +1,7 @@
 [package]
 name = "seed-bootstrap"
 description = "Components for using Bootstrap toolkit with Seed framework"
-version = "0.1.0"
+version = "0.1.1"
 edition = "2018"
 repository = "https://github.com/panoptix-za/web-bundler"
 license = "MIT/Apache-2.0"
