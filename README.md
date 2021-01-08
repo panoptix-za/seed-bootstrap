@@ -17,7 +17,8 @@ quickstart](https://github.com/seed-rs/seed-quickstart) project to get
 started.
 
 Depend on Seed Bootstrap in your Cargo.toml like a normal Rust library.
-```
+
+```toml
 [dependencies]
 seed = "0.8"
 seed-bootstrap = "0.1"
@@ -30,7 +31,7 @@ Seed Bootstrap provides a number of builders that can be used as part
 of your Seed view functions. For example, this is how you can create a
 variety of Bootstrap-style buttons.
 
-```
+```rust
 use seed_bootstrap::components::button::{Button, Role, Type};
 fn view(model: &Model) -> Node<Msg> {
     div![
