@@ -32,7 +32,8 @@ of your Seed view functions. For example, this is how you can create a
 variety of Bootstrap-style buttons.
 
 ```rust
-use seed_bootstrap::components::button::{Button, Role, Type};
+use seed_bootstrap::button::{Button, Role, Type};
+
 fn view(model: &Model) -> Node<Msg> {
     div![
         Button::new("Primary"),
