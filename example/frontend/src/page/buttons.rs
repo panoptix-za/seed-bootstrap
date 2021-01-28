@@ -111,7 +111,7 @@ Button::new("Link").link().outline(),"#
                 Button::new("Large").large(),
             ])
             .code(
-r#"BButton::new("Small").small(),
+r#"Button::new("Small").small(),
 Button::new("Medium"),
 Button::new("Large").large(),"#
             ),
