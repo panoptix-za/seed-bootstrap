@@ -13,7 +13,7 @@ authors = [
 ]
 
 [dependencies]
-seed = "0.8"
+seed = "0.10"
 wasm-bindgen = "0.2"
 
 [dependencies.uuid]
